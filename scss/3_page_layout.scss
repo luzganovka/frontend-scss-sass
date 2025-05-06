@@ -1,0 +1,101 @@
+$gray: #ccc;
+$space: 20px;
+
+// Миксин для центрирования элементов
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+// Миксин для стилей контейнера
+@mixin container-style {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $space;
+}
+
+@mixin color-box {
+    margin: 0 0 $space 0;
+    padding: $space 0;
+    background-color: $gray;
+}
+
+// Основные стили
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: $space 0;
+}
+
+.container {
+    @include container-style;
+    
+    .header {
+        @include center-content;
+        flex-direction: column;
+        padding: 0 0;
+        
+        .logo {
+            margin: 0 0 $space 0;
+            font-size: 24px;
+        }
+        
+        .nav {
+            @include color-box;
+            width: 100%;
+            
+            &__list {
+                @include center-content;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                gap: $space * 1.5;
+            }
+            
+            &__link {
+                text-decoration: underline;
+                color: #313794;
+                
+                &:hover {
+                    color: #0066cc;
+                }
+            }
+        }
+    }
+    
+    .section {
+        @include center-content;
+        // @include color-box;
+        flex-direction: column;
+        
+        &__header {
+            @include color-box;
+            font-size: 20px;
+            width: 100%;
+        }
+        
+        .columns {
+            display: flex;
+            width: 100%;
+            gap: $space;
+            
+            .column {
+                // @include center-content;
+                @include color-box;
+                flex: 1;
+                height: 150px;
+            }
+        }
+    }
+    
+    .footer {
+        @include center-content;
+        @include color-box;
+        
+        .copyright {
+            margin: 0;
+        }
+    }
+}
