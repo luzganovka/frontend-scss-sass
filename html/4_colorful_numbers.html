@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers 1-100 with Dynamic Colors</title>
+    <link rel="stylesheet" href="../css/4_colorful_numbers.css">
+</head>
+<body>
+    <div class="numbers-container">
+        <!-- Числа будут сгенерированы через SASS -->
+    </div>
+    <script>
+        const container = document.querySelector('.numbers-container');
+        for (let i = 1; i <= 100; i++) {
+            const numberElement = document.createElement('div');
+            numberElement.className = `number-${i}`;
+            numberElement.textContent = i;
+            container.appendChild(numberElement);
+        }
+    </script>
+</body>
+</html>
