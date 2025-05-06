@@ -1,0 +1,99 @@
+@gray: #ccc;
+@space: 20px;
+
+// Миксин для центрирования элементов
+.center-content() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+// Миксин для стилей контейнера
+.container-style() {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 @space;
+}
+
+.color-box() {
+    margin: 0 0 @space 0;
+    padding: @space 0;
+    background-color: @gray;
+}
+
+// Основные стили
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: @space 0;
+}
+
+.container {
+    .container-style();
+    
+    .header {
+        .center-content();
+        flex-direction: column;
+        padding: 0 0;
+        
+        .logo {
+            margin: 0 0 @space 0;
+            font-size: 24px;
+        }
+        
+        .nav {
+            .color-box();
+            width: 100%;
+            
+            &__list {
+                .center-content();
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                gap: @space * 1.5;
+            }
+            
+            &__link {
+                text-decoration: underline;
+                color: #313794;
+                
+                &:hover {
+                    color: #0066cc;
+                }
+            }
+        }
+    }
+    
+    .section {
+        .center-content();
+        flex-direction: column;
+        
+        &__header {
+            .color-box();
+            font-size: 20px;
+            width: 100%;
+        }
+        
+        .columns {
+            display: flex;
+            width: 100%;
+            gap: @space;
+            
+            .column {
+                .color-box();
+                flex: 1;
+                height: 150px;
+            }
+        }
+    }
+    
+    .footer {
+        .center-content();
+        .color-box();
+        
+        .copyright {
+            margin: 0;
+        }
+    }
+}
